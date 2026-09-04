@@ -1,115 +1,101 @@
 import { NextResponse } from 'next/server';
 import { pool } from '@/db';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST() {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
 
-    // Admin user
-    await client.query(
-      `INSERT INTO users (name, email, password, role)
-       VALUES ($1, $2, $3, $4)
-       ON CONFLICT (email) DO NOTHING`,
-      ['Admin GBC', 'admin@gbc.bj', 'admin-gbc-2026', 'admin']
-    );
+    await client.query(`
+      INSERT INTO users (name, email, password, role)
+      VALUES ($1, $2, $3, $4)
+      ON CONFLICT (email) DO NOTHING
+    `, ['Admin GBC', 'admin@gbc.bj', 'admin-gbc-2026', 'admin']);
 
-    const categories = [
-      { name: 'Ménage', slug: 'menage', type: 'service' },
-      { name: 'Garde d\'enfants', slug: 'garde-enfants', type: 'service' },
-      { name: 'Cuisine', slug: 'cuisine', type: 'service' },
-      { name: 'Transport & Sécurité', slug: 'transport-securite', type: 'service' },
-      { name: 'Placement', slug: 'placement', type: 'opportunity' },
-      { name: 'Recrutement', slug: 'recrutement', type: 'opportunity' },
-      { name: 'Recrutement', slug: 'recrutement-article', type: 'article' },
-      { name: 'Conseils', slug: 'conseils', type: 'article' },
-      { name: 'Actualité', slug: 'actualite', type: 'article' },
+    const catRows = [
+      ['Ménage', 'menage', 'service'],
+      ['Garde d\'enfants', 'garde-enfants', 'service'],
+      ['Cuisine', 'cuisine', 'service'],
+      ['Transport & Sécurité', 'transport-securite', 'service'],
+      ['Placement', 'placement', 'opportunity'],
+      ['Recrutement', 'recrutement', 'opportunity'],
+      ['Recrutement', 'recrutement-article', 'article'],
+      ['Conseils', 'conseils', 'article'],
+      ['Actualité', 'actualite', 'article'],
     ];
-
-    for (const c of categories) {
+    for (const [name, slug, type] of catRows) {
       await client.query(
-        `INSERT INTO categories (name, slug, type) VALUES ($1, $2, $3) ON CONFLICT (slug) DO NOTHING`,
-        [c.name, c.slug, c.type]
+        'INSERT INTO categories (name, slug, type) VALUES ($1, $2, $3) ON CONFLICT (slug) DO NOTHING',
+        [name, slug, type]
       );
     }
 
-    const services = [
-      { title: 'Aides Ménagères', slug: 'aides-menageres', description: 'Un service professionnel d\'entretien ménager adapté à vos besoins quotidiens.', content: 'Notre service d\'aides ménagères est conçu pour vous offrir un cadre de vie impeccable.', icon: 'Home', categorySlug: 'menage', order: 1 },
-      { title: 'Nounous & Garde d\'enfants', slug: 'nounous', description: 'Des nounous dévouées et qualifiées pour veiller sur vos enfants.', content: 'La garde d\'enfants est un acte de confiance.', icon: 'Users', categorySlug: 'garde-enfants', order: 2 },
-      { title: 'Cuisinières', slug: 'cuisinieres', description: 'Des professionnelles de la cuisine pour vos repas quotidiens ou événements.', content: 'Nos cuisinières maîtrisent une variété de cuisines.', icon: 'UtensilsCrossed', categorySlug: 'cuisine', order: 3 },
-      { title: 'Chauffeurs & Gardiens', slug: 'chauffeurs-gardiens', description: 'Sécurité et mobilité assurées par des chauffeurs et gardiens rigoureux.', content: 'La sécurité de votre famille et de vos biens est primordiale.', icon: 'Car', categorySlug: 'transport-securite', order: 4 },
+    const svcRows: Array<[string, string, string, string, string, string, number]> = [
+      ['Aides Ménagères', 'aides-menageres', 'Un service professionnel d\'entretien ménager.', 'Notre service d\'aides ménagères vous offre un cadre de vie impeccable.', 'Home', 'menage', 1],
+      ['Nounous & Garde d\'enfants', 'nounous', 'Des nounous dévouées pour veiller sur vos enfants.', 'La garde d\'enfants est un acte de confiance.', 'Users', 'garde-enfants', 2],
+      ['Cuisinières', 'cuisinieres', 'Des professionnelles de la cuisine.', 'Nos cuisinières maîtrisent la cuisine béninoise et internationale.', 'UtensilsCrossed', 'cuisine', 3],
+      ['Chauffeurs & Gardiens', 'chauffeurs-gardiens', 'Sécurité et mobilité assurées.', 'La sécurité de votre famille est primordiale.', 'Car', 'transport-securite', 4],
     ];
-
-    for (const s of services) {
-      const cat = await client.query(`SELECT id FROM categories WHERE slug = $1`, [s.categorySlug]);
-      const categoryId = cat.rows[0]?.id;
+    for (const [title, slug, desc, content, icon, catSlug, order] of svcRows) {
+      const catRes = await client.query('SELECT id FROM categories WHERE slug = $1', [catSlug]);
+      const catId = catRes.rows[0]?.id ?? null;
       await client.query(
-        `INSERT INTO services (title, slug, description, content, icon, category_id, "order", is_active)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, true)
-         ON CONFLICT (slug) DO UPDATE SET description = $3, content = $4`,
-        [s.title, s.slug, s.description, s.content, s.icon, categoryId, s.order]
+        'INSERT INTO services (title, slug, description, content, icon, category_id, "order", is_active) VALUES ($1, $2, $3, $4, $5, $6, $7, true) ON CONFLICT (slug) DO UPDATE SET description = $3',
+        [title, slug, desc, content, icon, catId, order]
       );
     }
 
-    const articles = [
-      { title: 'Les nouvelles tendances du recrutement au Bénin en 2026', slug: 'tendances-recrutement-benin-2026', excerpt: 'Analyse des secteurs en croissance.', content: 'Le marché du recrutement au Bénin connaît une transformation.', categorySlug: 'recrutement-article', isPublished: true },
-      { title: 'Comment bien choisir son aide ménagère ?', slug: 'bien-choisir-aide-menagere', excerpt: 'Conseils pratiques pour sélectionner le personnel.', content: 'Choisir une aide ménagère est une décision importante.', categorySlug: 'conseils', isPublished: true },
-      { title: 'GBC Bénin lance son programme de nounous certifiées', slug: 'programme-nounous-certifiees', excerpt: 'Une initiative pour former et certifier les nounous.', content: 'GBC Bénin est fier d\'annoncer le lancement de son programme.', categorySlug: 'actualite', isPublished: true },
+    const artRows: Array<[string, string, string, string, string]> = [
+      ['Tendances recrutement Bénin 2026', 'tendances-recrutement-benin-2026', 'Analyse des secteurs en croissance.', 'Le marché du recrutement au Bénin évolue.', 'recrutement-article'],
+      ['Bien choisir son aide ménagère', 'bien-choisir-aide-menagere', 'Conseils pratiques.', 'Choisir une aide ménagère est une décision importante.', 'conseils'],
+      ['Nounous certifiées', 'programme-nounous-certifiees', 'Programme de certification.', 'GBC lance son programme de nounous certifiées.', 'actualite'],
     ];
-
-    for (const a of articles) {
-      const cat = await client.query(`SELECT id FROM categories WHERE slug = $1`, [a.categorySlug]);
-      const categoryId = cat.rows[0]?.id;
+    for (const [title, slug, excerpt, content, catSlug] of artRows) {
+      const catRes = await client.query('SELECT id FROM categories WHERE slug = $1', [catSlug]);
+      const catId = catRes.rows[0]?.id ?? null;
       await client.query(
-        `INSERT INTO articles (title, slug, excerpt, content, author_id, category_id, is_published, published_at)
-         VALUES ($1, $2, $3, $4, 1, $5, $6, NOW())
-         ON CONFLICT (slug) DO UPDATE SET excerpt = $3, content = $4`,
-        [a.title, a.slug, a.excerpt, a.content, categoryId, a.isPublished]
+        'INSERT INTO articles (title, slug, excerpt, content, author_id, category_id, is_published, published_at) VALUES ($1, $2, $3, $4, 1, $5, true, NOW()) ON CONFLICT (slug) DO NOTHING',
+        [title, slug, excerpt, content, catId]
       );
     }
 
-    const testimonials = [
-      { name: 'Adéola M.', role: 'Mère de famille', company: 'Cotonou', content: 'GBC Bénin nous a trouvé une aide ménagère formidable.' },
-      { name: 'Patrick K.', role: 'Entrepreneur', company: 'Abomey-Calavi', content: 'Le chauffeur que nous avons obtenu via GBC est d\'une grande fiabilité.' },
-      { name: 'Sènanou G.', role: 'Directrice d\'entreprise', company: 'Cotonou', content: 'Nous avons recruté notre nounou via GBC Bénin.' },
-      { name: 'Olivier D.', role: 'Chef d\'entreprise', company: 'Porto-Novo', content: 'Un partenaire de confiance.' },
+    const testRows: Array<[string, string, string, string]> = [
+      ['Adéola M.', 'Mère de famille', 'Cotonou', 'GBC nous a trouvé une aide formidable.'],
+      ['Patrick K.', 'Entrepreneur', 'Abomey-Calavi', 'Le chauffeur obtenu via GBC est très fiable.'],
+      ['Sènanou G.', 'Directrice', 'Cotonou', 'Service de qualité rare au Bénin.'],
+      ['Olivier D.', 'Chef d\'entreprise', 'Porto-Novo', 'Un partenaire de confiance.'],
     ];
-
-    for (const t of testimonials) {
+    for (const [name, role, company, content] of testRows) {
       await client.query(
-        `INSERT INTO testimonials (name, role, company, content, is_active)
-         SELECT $1, $2, $3, $4, true
-         WHERE NOT EXISTS (SELECT 1 FROM testimonials WHERE name = $1 AND content = $4)`,
-        [t.name, t.role, t.company, t.content]
+        'INSERT INTO testimonials (name, role, company, content, is_active) SELECT $1, $2, $3, $4, true WHERE NOT EXISTS (SELECT 1 FROM testimonials WHERE name = $1)',
+        [name, role, company, content]
       );
     }
 
-    const faqs = [
-      { question: 'Qui est GBC Bénin ?', answer: 'Global Business Center est un service de recrutement basé à Abomey-Calavi.', category: 'general', order: 1 },
-      { question: 'Quelles sont vos heures d\'ouverture ?', answer: 'Du lundi au vendredi, de 08h00 à 18h00.', category: 'general', order: 2 },
-      { question: 'Dans quelles villes intervenez-vous ?', answer: 'Cotonou, Abomey-Calavi, Porto-Novo et tout le Bénin.', category: 'general', order: 3 },
-      { question: 'Quels services propose GBC ?', answer: 'Aides ménagères, nounous, cuisinières, chauffeurs et gardiens.', category: 'services', order: 4 },
-      { question: 'Le personnel est-il vérifié ?', answer: 'Oui, processus de vérification complet.', category: 'services', order: 5 },
-      { question: 'Comment prendre rendez-vous ?', answer: 'En ligne, par téléphone ou WhatsApp.', category: 'appointments', order: 6 },
-      { question: 'Les rendez-vous sont-ils payants ?', answer: 'Le premier rendez-vous est gratuit.', category: 'appointments', order: 7 },
-      { question: 'Comment sont protégées mes données ?', answer: 'Protocoles de sécurité stricts.', category: 'security', order: 8 },
-      { question: 'Que se passe-t-il en cas de problème ?', answer: 'Service de remplacement garanti.', category: 'security', order: 9 },
+    const faqRows: Array<[string, string, string, number]> = [
+      ['Qui est GBC Bénin ?', 'Service de recrutement à Abomey-Calavi.', 'general', 1],
+      ['Heures d\'ouverture ?', 'Lundi-vendredi 08h-18h.', 'general', 2],
+      ['Villes couvertes ?', 'Cotonou, Abomey-Calavi, Porto-Novo, tout le Bénin.', 'general', 3],
+      ['Services proposés ?', 'Aides ménagères, nounous, cuisinières, chauffeurs, gardiens.', 'services', 4],
+      ['Personnel vérifié ?', 'Oui, processus de vérification complet.', 'services', 5],
+      ['Prendre rendez-vous ?', 'En ligne, par téléphone ou WhatsApp.', 'appointments', 6],
+      ['Rendez-vous payants ?', 'Le premier est gratuit.', 'appointments', 7],
+      ['Protection des données ?', 'Protocoles de sécurité stricts.', 'security', 8],
+      ['Problème avec le personnel ?', 'Remplacement garanti.', 'security', 9],
     ];
-
-    for (const f of faqs) {
+    for (const [q, a, cat, order] of faqRows) {
       await client.query(
-        `INSERT INTO faqs (question, answer, category, "order", is_active)
-         SELECT $1, $2, $3, $4, true
-         WHERE NOT EXISTS (SELECT 1 FROM faqs WHERE question = $1)`,
-        [f.question, f.answer, f.category, f.order]
+        'INSERT INTO faqs (question, answer, category, "order", is_active) SELECT $1, $2, $3, $4, true WHERE NOT EXISTS (SELECT 1 FROM faqs WHERE question = $1)',
+        [q, a, cat, order]
       );
     }
 
     await client.query('COMMIT');
-    return NextResponse.json({ success: true, message: 'Database seeded successfully!' });
+    return NextResponse.json({ success: true });
   } catch (error) {
     await client.query('ROLLBACK');
-    console.error('Seed failed:', error);
     return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
   } finally {
     client.release();
