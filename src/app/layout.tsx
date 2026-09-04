@@ -5,11 +5,11 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/ui/CookieBanner";
 import Analytics from "@/components/analytics/Analytics";
-import TawkTo from "@/components/analytics/TawkTo";
+import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: {
-    default: "GBC Bénin | Votre partenaire de confiance",
+    default: "GBC Bénin | Agence de recrutement de personnel au Bénin",
     template: "%s | GBC Bénin",
   },
   description:
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "Global Business Center",
   ],
   openGraph: {
-    title: "GBC Bénin | Votre partenaire de confiance",
+    title: "GBC Bénin | Agence de recrutement de personnel au Bénin",
     description:
       "Recrutement et placement de personnel qualifié au Bénin. Aides ménagères, nounous, cuisinières, chauffeurs et gardiens.",
     url: "https://gbc.bj",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GBC Bénin | Votre partenaire de confiance",
+    title: "GBC Bénin | Agence de recrutement de personnel au Bénin",
     description:
       "Recrutement et placement de personnel qualifié au Bénin.",
   },
@@ -93,7 +93,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="antialiased">
         <Analytics />
-        <TawkTo />
+        <WhatsAppButton />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

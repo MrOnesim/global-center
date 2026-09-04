@@ -53,12 +53,6 @@ export default function HomePage() {
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl">
-            <FadeIn delay={0.1}>
-              <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-white/80 text-sm mb-6">
-                <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                Recrutement de personnel qualifié au Bénin
-              </div>
-            </FadeIn>
             <FadeIn delay={0.2}>
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
                 Trouvez le personnel <span className="text-accent italic">qu&apos;il vous faut</span>.
@@ -116,10 +110,6 @@ export default function HomePage() {
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                </div>
-                <div className="absolute -top-8 -left-8 bg-accent text-white p-8 rounded-2xl shadow-xl hidden md:block">
-                  <div className="text-4xl font-bold mb-1">10+</div>
-                  <div className="text-sm font-semibold opacity-80 uppercase tracking-wider">Ans d&apos;expérience</div>
                 </div>
               </div>
             </FadeIn>
