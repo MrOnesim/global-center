@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -109,11 +108,10 @@ export default function PresentationPlayer({ isOpen, onClose }: PresentationProp
               <source src={slide.video} type="video/mp4" />
             </video>
           ) : slide.image ? (
-            <Image
+            <img
               src={slide.image}
               alt="GBC Presentation"
-              fill
-              className="object-cover"
+              className="w-full h-full object-cover"
             />
           ) : null}
 
