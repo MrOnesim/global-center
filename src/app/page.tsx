@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import SplitText from '@/components/ui/SplitText';
 import {
   ArrowRight,
   ChevronRight,
@@ -53,11 +54,20 @@ export default function HomePage() {
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl">
-            <FadeIn delay={0.2}>
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Trouvez le personnel <span className="text-accent italic">qu&apos;il vous faut</span>.
-              </h1>
-            </FadeIn>
+            <SplitText
+              text="Trouvez le personnel qu'il vous faut."
+              tag="h1"
+              className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+              splitType="chars"
+              delay={30}
+              duration={0.8}
+              ease="power3.out"
+              from={{ opacity: 0, y: 50 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-50px"
+              textAlign="left"
+            />
             <FadeIn delay={0.3}>
               <p className="text-lg md:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
                 Global Business Center recrute pour vous : Aides ménagères, Nounous, Cuisinières,
