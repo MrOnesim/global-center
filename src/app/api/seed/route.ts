@@ -6,6 +6,14 @@ export async function POST() {
   try {
     await client.query('BEGIN');
 
+    // Admin user
+    await client.query(
+      `INSERT INTO users (name, email, password, role)
+       VALUES ($1, $2, $3, $4)
+       ON CONFLICT (email) DO NOTHING`,
+      ['Admin GBC', 'admin@gbc.bj', 'admin-gbc-2026', 'admin']
+    );
+
     const categories = [
       { name: 'Ménage', slug: 'menage', type: 'service' },
       { name: 'Garde d\'enfants', slug: 'garde-enfants', type: 'service' },
