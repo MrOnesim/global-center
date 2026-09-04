@@ -8,11 +8,15 @@ export async function POST() {
   try {
     await client.query('BEGIN');
 
+    // Ensure admin user exists
     await client.query(`
       INSERT INTO users (name, email, password, role)
       VALUES ($1, $2, $3, $4)
-      ON CONFLICT (email) DO NOTHING
+      ON CONFLICT (email) DO UPDATE SET name = $1
     `, ['Admin GBC', 'admin@gbc.bj', 'admin-gbc-2026', 'admin']);
+
+    const userRes = await client.query('SELECT id FROM users WHERE email = $1', ['admin@gbc.bj']);
+    const authorId = userRes.rows[0]?.id ?? 1;
 
     const catRows = [
       ['Ménage', 'menage', 'service'],
@@ -56,8 +60,8 @@ export async function POST() {
       const catRes = await client.query('SELECT id FROM categories WHERE slug = $1', [catSlug]);
       const catId = catRes.rows[0]?.id ?? null;
       await client.query(
-        'INSERT INTO articles (title, slug, excerpt, content, author_id, category_id, is_published, published_at) VALUES ($1, $2, $3, $4, 1, $5, true, NOW()) ON CONFLICT (slug) DO NOTHING',
-        [title, slug, excerpt, content, catId]
+        'INSERT INTO articles (title, slug, excerpt, content, author_id, category_id, is_published, published_at) VALUES ($1, $2, $3, $4, $5, $6, true, NOW()) ON CONFLICT (slug) DO NOTHING',
+        [title, slug, excerpt, content, authorId, catId]
       );
     }
 
