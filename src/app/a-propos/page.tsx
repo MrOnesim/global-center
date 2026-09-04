@@ -31,9 +31,9 @@ export default function AboutPage() {
       />
 
       {/* History */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <FadeIn direction="left">
               <div>
                 <SectionTitle subtitle="Notre histoire" title="Un engagement ancré dans le temps" />
@@ -78,11 +78,11 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-light">
+      <section className="py-12 md:py-24 bg-light">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
             <FadeIn direction="left">
-              <div className="bg-white p-12 rounded-3xl shadow-sm border border-primary/5 h-full">
+              <div className="bg-white p-6 md:p-12 rounded-3xl shadow-sm border border-primary/5 h-full">
                 <div className="w-16 h-16 bg-primary-light/10 text-primary-light rounded-2xl flex items-center justify-center mb-8">
                   <Target size={32} />
                 </div>
@@ -94,7 +94,7 @@ export default function AboutPage() {
               </div>
             </FadeIn>
             <FadeIn direction="right">
-              <div className="bg-white p-12 rounded-3xl shadow-sm border border-primary/5 h-full">
+              <div className="bg-white p-6 md:p-12 rounded-3xl shadow-sm border border-primary/5 h-full">
                 <div className="w-16 h-16 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mb-8">
                   <Eye size={32} />
                 </div>
@@ -110,7 +110,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn>
             <SectionTitle subtitle="Ce qui nous guide" title="Nos Valeurs" icon={ShieldCheck} centered />
@@ -132,7 +132,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-24 bg-light">
+      <section className="py-12 md:py-24 bg-light">
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn>
             <SectionTitle subtitle="L'équipe" title="Nos Collaborateurs" icon={Users} centered />
@@ -165,7 +165,7 @@ export default function AboutPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-primary-light text-white text-center">
+      <section className="py-12 md:py-24 bg-primary-light text-white text-center">
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn>
             <h2 className="text-4xl font-bold mb-8">Rejoignez l&apos;aventure GBC Bénin</h2>

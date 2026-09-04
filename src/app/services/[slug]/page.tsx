@@ -38,9 +38,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       </PageHeader>
 
       {/* Details */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-20 items-start">
             <FadeIn direction="left">
               <div>
                 <h2 className="text-3xl font-bold text-primary mb-6">Présentation du service</h2>
@@ -75,7 +75,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   />
                 </div>
 
-                <div className="bg-light p-10 rounded-[40px] border border-primary/5 shadow-inner">
+                <div className="bg-light p-6 md:p-10 rounded-[40px] border border-primary/5 shadow-inner">
                   <h3 className="text-2xl font-bold text-primary mb-8 text-center">Notre processus</h3>
                   <div className="space-y-8 relative">
                     <div className="absolute top-0 left-6 w-0.5 h-full bg-primary/10 -z-10" />

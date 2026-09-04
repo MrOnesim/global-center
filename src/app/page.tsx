@@ -57,7 +57,7 @@ export default function HomePage() {
             <SplitText
               text="Trouvez le personnel qu'il vous faut."
               tag="h1"
-              className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+              className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
               splitType="chars"
               delay={30}
               duration={0.8}
@@ -107,9 +107,9 @@ export default function HomePage() {
       </section>
 
       {/* Intro Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <FadeIn direction="left">
               <div className="relative">
                 <div className="aspect-square bg-light rounded-3xl overflow-hidden relative shadow-2xl">
@@ -145,7 +145,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-light">
+      <section className="py-12 md:py-24 bg-light">
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn>
             <SectionTitle
@@ -160,11 +160,11 @@ export default function HomePage() {
               const Icon = service.icon;
               return (
                 <FadeIn key={index} delay={index * 0.1}>
-                  <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-primary/5 h-full">
-                    <div className="w-14 h-14 bg-light rounded-xl flex items-center justify-center text-primary-light mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                      <Icon size={28} />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-primary">{service.title}</h3>
+                    <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-primary/5 h-full">
+                      <div className="w-14 h-14 bg-light rounded-xl flex items-center justify-center text-primary-light mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <Icon size={28} />
+                      </div>
+                      <h3 className="text-xl font-bold mb-4 text-primary">{service.title}</h3>
                     <p className="text-text-main/60 mb-6">{service.description}</p>
                     <div className="flex items-center gap-4">
                       <Link
@@ -191,10 +191,10 @@ export default function HomePage() {
       </section>
 
       {/* Why Us Section */}
-      <section className="py-24 bg-primary text-white overflow-hidden relative">
+      <section className="py-12 md:py-24 bg-primary text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -mr-32 -mt-32" />
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <FadeIn direction="left">
               <div>
                 <SectionTitle
@@ -202,8 +202,8 @@ export default function HomePage() {
                   title="Pourquoi choisir GBC Bénin ?"
                   light
                 />
-                <p className="text-white/70 text-lg mb-12">
-                  Nous nous distinguons par une approche centrée sur l&apos;humain et une compréhension
+                <p className="text-white/70 text-lg mb-6 md:mb-12">
+                  Nous nous distinguishons par une approche centrée sur l&apos;humain et une compréhension
                   profonde des réalités du terrain au Bénin.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -260,7 +260,7 @@ export default function HomePage() {
       </section>
 
       {/* How it works */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn>
             <SectionTitle
@@ -272,7 +272,7 @@ export default function HomePage() {
           </FadeIn>
           <div className="relative">
             <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-light -translate-y-1/2 z-0" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 relative z-10">
               {steps.map((step, index) => (
                 <FadeIn key={index} delay={index * 0.15}>
                   <div className="text-center group">
@@ -290,10 +290,10 @@ export default function HomePage() {
       </section>
 
       {/* Opportunities Section */}
-      <section className="py-24 bg-light">
+      <section className="py-12 md:py-24 bg-light">
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn>
-            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-6 md:mb-12 gap-6">
               <SectionTitle
                 subtitle="Opportunités"
                 title="Nos dernières recherches"
@@ -313,7 +313,7 @@ export default function HomePage() {
                   <div className="sm:w-1/3 aspect-[4/3] sm:aspect-auto bg-primary/10 flex items-center justify-center text-primary/20 font-bold text-4xl">
                     {opp.category[0]}
                   </div>
-                  <div className="p-8 sm:w-2/3 flex flex-col justify-between">
+                  <div className="p-6 sm:p-8 sm:w-2/3 flex flex-col justify-between">
                     <div>
                       <div className="flex justify-between items-start mb-4">
                         <span className="text-xs font-bold uppercase tracking-wider text-primary-light bg-primary-light/10 px-3 py-1 rounded-full">
@@ -345,7 +345,7 @@ export default function HomePage() {
       </section>
 
       {/* Numbers Section */}
-      <section className="py-20 bg-primary-light text-white">
+      <section className="py-12 md:py-20 bg-primary-light text-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <FadeIn delay={0}>
@@ -385,7 +385,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn>
             <SectionTitle
@@ -404,29 +404,31 @@ export default function HomePage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-24 bg-dark relative overflow-hidden">
+      <section className="py-12 md:py-24 bg-dark relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-light via-transparent to-transparent" />
         </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <FadeIn>
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Vous avez un projet ?</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">Vous avez un projet ?</h2>
               <p className="text-xl text-white/70 mb-12">
                 Échangeons avec notre équipe pour explorer comment nous pouvons vous accompagner vers le
                 succès.
               </p>
-              <Button variant="secondary" size="lg" className="rounded-full px-12 py-5 text-xl">
-                <Link href="/prendre-rendez-vous">Prendre rendez-vous</Link>
-              </Button>
-              <a
-                href="https://wa.me/2290166727152?text=Bonjour%2C%20j%27ai%20un%20projet%20de%20recrutement%20et%20souhaite%20en%20discuter."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block ml-4 bg-[#25D366] text-white font-bold rounded-full px-12 py-5 text-xl hover:bg-[#20ba5a] transition-colors shadow-lg"
-              >
-                WhatsApp
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button variant="secondary" size="lg" className="rounded-full px-8 py-4 sm:px-12 sm:py-5 text-lg sm:text-xl w-full sm:w-auto">
+                  <Link href="/prendre-rendez-vous">Prendre rendez-vous</Link>
+                </Button>
+                <a
+                  href="https://wa.me/2290166727152?text=Bonjour%2C%20j%27ai%20un%20projet%20de%20recrutement%20et%20souhaite%20en%20discuter."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-[#25D366] text-white font-bold rounded-full px-8 py-4 sm:px-12 sm:py-5 text-lg sm:text-xl hover:bg-[#20ba5a] transition-colors shadow-lg w-full sm:w-auto text-center"
+                >
+                  WhatsApp
+                </a>
+              </div>
             </div>
           </FadeIn>
         </div>

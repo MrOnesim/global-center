@@ -62,13 +62,13 @@ export default function OpportunitiesPage() {
         breadcrumb={[{ label: 'Accueil', href: '/' }, { label: 'Opportunités' }]}
       />
 
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="flex flex-col lg:flex-row gap-6 md:gap-12">
             {/* Filters */}
             <aside className="lg:w-1/4">
               <FadeIn direction="left">
-                <div className="bg-light p-8 rounded-3xl sticky top-28">
+                <div className="bg-light p-5 md:p-8 rounded-3xl sticky top-28">
                   <div className="flex items-center gap-2 mb-8 text-primary font-bold">
                     <Filter size={20} /> <span>Filtres</span>
                   </div>
@@ -123,7 +123,7 @@ export default function OpportunitiesPage() {
                           {opp.type}
                         </span>
                       </div>
-                      <div className="p-8 flex-grow flex flex-col justify-between">
+                      <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between">
                         <div>
                           <div className="flex justify-between items-start mb-4">
                             <span className="text-xs font-bold uppercase tracking-wider text-primary-light bg-primary-light/10 px-3 py-1 rounded-full">

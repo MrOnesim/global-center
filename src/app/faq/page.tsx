@@ -56,9 +56,9 @@ export default function FAQPage() {
         breadcrumb={[{ label: 'Accueil', href: '/' }, { label: 'FAQ' }]}
       />
 
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-          <div className="space-y-16">
+      <section className="py-12 md:py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="space-y-8 md:space-y-16">
             {faqs.map((group, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div>
@@ -89,7 +89,7 @@ export default function FAQPage() {
           </div>
 
           <FadeIn>
-            <div className="mt-24 bg-primary rounded-3xl p-12 text-center text-white relative overflow-hidden">
+            <div className="mt-24 bg-primary rounded-3xl p-6 md:p-12 text-center text-white relative overflow-hidden">
               <div className="absolute -top-12 -right-12 w-48 h-48 bg-white/5 rounded-full blur-2xl" />
               <h3 className="text-2xl font-bold mb-4">Vous n&apos;avez pas trouvé votre réponse ?</h3>
               <p className="text-white/70 mb-8 max-w-xl mx-auto">

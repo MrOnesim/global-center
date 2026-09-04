@@ -24,13 +24,13 @@ export default function ServicesPage() {
       />
 
       {/* Services List */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col gap-24">
+          <div className="flex flex-col gap-12 md:gap-24">
             {detailedServices.map((service, index) => (
               <div
                 key={index}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center ${
                   index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
                 }`}
               >

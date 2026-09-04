@@ -35,14 +35,14 @@ export default function AppointmentPage() {
         breadcrumb={[{ label: 'Accueil', href: '/' }, { label: 'Rendez-vous' }]}
       />
 
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
               <div className="bg-white rounded-[40px] shadow-2xl border border-primary/5 overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-5">
                   {/* Left Side Info */}
-                  <div className="lg:col-span-2 bg-primary p-12 text-white">
+                  <div className="lg:col-span-2 bg-primary p-6 md:p-10 lg:p-12 text-white">
                     <h3 className="text-2xl font-bold mb-8">Pourquoi nous rencontrer ?</h3>
                     <ul className="space-y-6">
                       <li className="flex gap-3">
@@ -72,7 +72,7 @@ export default function AppointmentPage() {
                   </div>
 
                   {/* Right Side Form */}
-                  <div className="lg:col-span-3 p-12">
+                  <div className="lg:col-span-3 p-6 md:p-10 lg:p-12">
                     {status?.success && (
                       <div className="bg-green-50 border border-green-200 text-green-800 p-6 rounded-2xl mb-8 flex items-center gap-4">
                         <Send className="text-green-500" />

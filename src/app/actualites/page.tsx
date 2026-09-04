@@ -51,9 +51,9 @@ export default function NewsPage() {
         breadcrumb={[{ label: 'Accueil', href: '/' }, { label: 'Actualités' }]}
       />
 
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
             {articles.map((article, index) => (
               <FadeIn key={index} delay={index * 0.1}>
                 <article className="group flex flex-col h-full">
@@ -92,7 +92,7 @@ export default function NewsPage() {
             ))}
           </div>
 
-          <div className="mt-20 flex justify-center gap-2">
+            <div className="mt-10 md:mt-20 flex justify-center gap-2">
             <button className="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center font-bold">1</button>
             <button className="w-10 h-10 rounded-lg bg-light text-primary hover:bg-primary/10 flex items-center justify-center font-bold">2</button>
             <button className="w-10 h-10 rounded-lg bg-light text-primary hover:bg-primary/10 flex items-center justify-center font-bold">3</button>

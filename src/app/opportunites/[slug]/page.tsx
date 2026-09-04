@@ -105,9 +105,9 @@ export default async function OpportunityDetailPage({ params }: { params: Promis
         </div>
       </div>
 
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-16">
             <div className="lg:col-span-2">
               <FadeIn>
                 <div className="flex items-center gap-2 mb-6">
@@ -118,9 +118,9 @@ export default async function OpportunityDetailPage({ params }: { params: Promis
                     {opp.status}
                   </span>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight">{opp.title}</h1>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight">{opp.title}</h1>
 
-                <div className="aspect-video bg-light rounded-3xl mb-12 overflow-hidden relative shadow-xl">
+                <div className="aspect-video bg-light rounded-3xl mb-6 md:mb-12 overflow-hidden relative shadow-xl">
                   <Image
                     src={opp.image}
                     alt={opp.title}
@@ -149,7 +149,7 @@ export default async function OpportunityDetailPage({ params }: { params: Promis
 
             <aside>
               <div className="sticky top-28 space-y-8">
-                <div className="bg-primary text-white p-8 rounded-[32px] shadow-xl relative overflow-hidden">
+                <div className="bg-primary text-white p-6 md:p-8 rounded-[32px] shadow-xl relative overflow-hidden">
                   <div className="absolute -top-12 -right-12 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
                   <h3 className="text-xl font-bold mb-8 border-b border-white/10 pb-4">Informations clés</h3>
                   <div className="space-y-6">
@@ -183,7 +183,7 @@ export default async function OpportunityDetailPage({ params }: { params: Promis
                   </div>
                 </div>
 
-                <div className="bg-white p-8 rounded-[32px] shadow-2xl border border-primary/5">
+                <div className="bg-white p-6 md:p-8 rounded-[32px] shadow-2xl border border-primary/5">
                   <h3 className="text-xl font-bold mb-6 text-primary">Je suis intéressé</h3>
                   <form className="space-y-4">
                     <input type="text" placeholder="Nom complet" className="w-full bg-light border border-primary/5 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary-light transition-all" />

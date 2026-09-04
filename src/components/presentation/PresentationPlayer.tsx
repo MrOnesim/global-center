@@ -125,7 +125,7 @@ export default function PresentationPlayer({ isOpen, onClose }: PresentationProp
               <h2 className="text-accent font-bold text-sm tracking-[0.3em] uppercase mb-4">
                 GBC Bénin
               </h2>
-              <h3 className="text-5xl md:text-7xl font-black text-white mb-8 leading-tight italic">
+              <h3 className="text-3xl sm:text-5xl md:text-7xl font-black text-white mb-8 leading-tight italic">
                 {slide.title}
               </h3>
               <p className="text-xl md:text-2xl text-white/80 font-medium leading-relaxed max-w-2xl mx-auto">

@@ -34,7 +34,7 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -60 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="bg-light p-10 md:p-14 rounded-3xl relative"
+            className="bg-light p-6 sm:p-10 md:p-14 rounded-3xl relative"
           >
             <div className="absolute -top-4 -left-4 w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white text-2xl font-serif shadow-lg">
               &ldquo;
