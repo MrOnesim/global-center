@@ -39,7 +39,7 @@ const slides = [
   {
     video: 'https://videos.pexels.com/video-files/33862762/14371351_3840_2160_30fps.mp4',
     title: 'Vision.',
-    subtitle: 'Construire aujourd&apos;hui les opportunités de demain.',
+    subtitle: 'Construire aujourd\'hui vos opportunités de demain.',
     duration: 15000,
   },
   {
