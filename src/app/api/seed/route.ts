@@ -29,11 +29,11 @@ export async function POST() {
       sql.push(`INSERT INTO categories (name, slug, type) VALUES ('${esc(name)}', '${esc(slug)}', '${esc(type)}') ON CONFLICT (slug) DO NOTHING;`);
     }
 
-    const svcData = [
-      ['Aides Ménagères', 'aides-menageres', 'Service professionnel d\'entretien ménager.', 'Notre service vous offre un cadre de vie impeccable.', 'Home', 'menage', 1],
-      ['Nounous & Garde d\'enfants', 'nounous', 'Nounous dévouées pour veiller sur vos enfants.', 'La garde d\'enfants est un acte de confiance.', 'Users', 'garde-enfants', 2],
-      ['Cuisinières', 'cuisinieres', 'Professionnelles de la cuisine.', 'Nos cuisinières maîtrisent la cuisine béninoise.', 'UtensilsCrossed', 'cuisine', 3],
-      ['Chauffeurs & Gardiens', 'chauffeurs-gardiens', 'Sécurité et mobilité assurées.', 'La sécurité de votre famille est primordiale.', 'Car', 'transport-securite', 4],
+    const svcData: [string, string, string, string, string, string, string][] = [
+      ['Aides Ménagères', 'aides-menageres', 'Service professionnel d\'entretien ménager.', 'Notre service vous offre un cadre de vie impeccable.', 'Home', 'menage', '1'],
+      ['Nounous & Garde d\'enfants', 'nounous', 'Nounous dévouées pour veiller sur vos enfants.', 'La garde d\'enfants est un acte de confiance.', 'Users', 'garde-enfants', '2'],
+      ['Cuisinières', 'cuisinieres', 'Professionnelles de la cuisine.', 'Nos cuisinières maîtrisent la cuisine béninoise.', 'UtensilsCrossed', 'cuisine', '3'],
+      ['Chauffeurs & Gardiens', 'chauffeurs-gardiens', 'Sécurité et mobilité assurées.', 'La sécurité de votre famille est primordiale.', 'Car', 'transport-securite', '4'],
     ];
     for (const [title, slug, desc, content, icon, catSlug, order] of svcData) {
       sql.push(`INSERT INTO services (title, slug, description, content, icon, category_id, "order", is_active) SELECT '${esc(title)}', '${esc(slug)}', '${esc(desc)}', '${esc(content)}', '${esc(icon)}', id, ${order}, true FROM categories WHERE slug='${esc(catSlug)}' ON CONFLICT (slug) DO NOTHING;`);
@@ -58,16 +58,16 @@ export async function POST() {
       sql.push(`INSERT INTO testimonials (name, role, company, content, is_active) SELECT '${esc(name)}', '${esc(role)}', '${esc(company)}', '${esc(content)}', true WHERE NOT EXISTS (SELECT 1 FROM testimonials WHERE name='${esc(name)}');`);
     }
 
-    const faqData: [string, string, string, number][] = [
-      ['Qui est GBC Bénin ?', 'Service de recrutement à Abomey-Calavi.', 'general', 1],
-      ['Heures d\'ouverture ?', 'Lundi-vendredi 08h-18h.', 'general', 2],
-      ['Villes couvertes ?', 'Cotonou, Abomey-Calavi, Porto-Novo.', 'general', 3],
-      ['Services proposés ?', 'Aides ménagères, nounous, cuisinières, chauffeurs, gardiens.', 'services', 4],
-      ['Personnel vérifié ?', 'Oui, processus complet.', 'services', 5],
-      ['Prendre rendez-vous ?', 'En ligne, téléphone ou WhatsApp.', 'appointments', 6],
-      ['Rendez-vous payants ?', 'Le premier est gratuit.', 'appointments', 7],
-      ['Protection des données ?', 'Protocoles de sécurité stricts.', 'security', 8],
-      ['Problème avec le personnel ?', 'Remplacement garanti.', 'security', 9],
+    const faqData: [string, string, string, string][] = [
+      ['Qui est GBC Bénin ?', 'Service de recrutement à Abomey-Calavi.', 'general', '1'],
+      ['Heures d\'ouverture ?', 'Lundi-vendredi 08h-18h.', 'general', '2'],
+      ['Villes couvertes ?', 'Cotonou, Abomey-Calavi, Porto-Novo.', 'general', '3'],
+      ['Services proposés ?', 'Aides ménagères, nounous, cuisinières, chauffeurs, gardiens.', 'services', '4'],
+      ['Personnel vérifié ?', 'Oui, processus complet.', 'services', '5'],
+      ['Prendre rendez-vous ?', 'En ligne, téléphone ou WhatsApp.', 'appointments', '6'],
+      ['Rendez-vous payants ?', 'Le premier est gratuit.', 'appointments', '7'],
+      ['Protection des données ?', 'Protocoles de sécurité stricts.', 'security', '8'],
+      ['Problème avec le personnel ?', 'Remplacement garanti.', 'security', '9'],
     ];
     for (const [q, a, cat, order] of faqData) {
       sql.push(`INSERT INTO faqs (question, answer, category, "order", is_active) SELECT '${esc(q)}', '${esc(a)}', '${esc(cat)}', ${order}, true WHERE NOT EXISTS (SELECT 1 FROM faqs WHERE question='${esc(q)}');`);
