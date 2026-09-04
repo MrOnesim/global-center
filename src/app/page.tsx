@@ -51,7 +51,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col w-full">
-      <PresentationPlayer isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />
+      {isVideoOpen && <PresentationPlayer isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />}
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-dark">
