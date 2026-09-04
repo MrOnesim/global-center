@@ -56,7 +56,7 @@ export default function HomePage() {
             <FadeIn delay={0.1}>
               <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-white/80 text-sm mb-6">
                 <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                Votre partenaire de confiance au Bénin
+                Recrutement de personnel qualifié au Bénin
               </div>
             </FadeIn>
             <FadeIn delay={0.2}>
