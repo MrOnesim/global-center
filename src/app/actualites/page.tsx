@@ -69,7 +69,7 @@ export default function NewsPage() {
                       {article.category}
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 text-xs text-text-main/40 mb-4 font-bold uppercase tracking-wider">
+                  <div className="flex items-center gap-4 text-xs text-text-main/60 mb-4 font-bold uppercase tracking-wider">
                     <div className="flex items-center gap-1">
                       <Calendar size={12} /> {article.date}
                     </div>

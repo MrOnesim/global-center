@@ -75,7 +75,7 @@ export default function OpportunitiesPage() {
 
                   <div className="space-y-8">
                     <div>
-                      <h4 className="font-bold text-sm uppercase tracking-wider text-text-main/40 mb-4">Catégorie</h4>
+                      <h4 className="font-bold text-sm uppercase tracking-wider text-text-main/60 mb-4">Catégorie</h4>
                       <div className="flex flex-wrap gap-2">
                         {['Tout', 'Ménage', 'Garde', 'Cuisine', 'Transport'].map((c, i) => (
                           <button
@@ -92,7 +92,7 @@ export default function OpportunitiesPage() {
                     </div>
 
                     <div>
-                      <h4 className="font-bold text-sm uppercase tracking-wider text-text-main/40 mb-4">Statut</h4>
+                      <h4 className="font-bold text-sm uppercase tracking-wider text-text-main/60 mb-4">Statut</h4>
                       <select className="w-full bg-white border border-primary/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary-light transition-colors">
                         <option>Tous les statuts</option>
                         <option>Ouvert</option>

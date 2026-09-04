@@ -1,56 +1,70 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://www.gbcbenin.com';
+  const base = 'https://global-business-center.vercel.app';
+
+  const now = new Date();
 
   const staticPages = [
-    '',
-    '/a-propos',
-    '/services',
-    '/actualites',
-    '/opportunites',
-    '/faq',
-    '/contact',
-    '/prendre-rendez-vous',
-    '/mentions-legales',
-    '/conditions-generales',
-    '/politique-de-confidentialite',
+    { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
+    { path: '/a-propos', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/services', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/actualites', priority: 0.8, changeFrequency: 'weekly' as const },
+    { path: '/opportunites', priority: 0.8, changeFrequency: 'weekly' as const },
+    { path: '/faq', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/contact', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/prendre-rendez-vous', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/conditions-generales', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/politique-de-confidentialite', priority: 0.3, changeFrequency: 'yearly' as const },
   ];
 
-  const services = [
+  const serviceSlugs = [
     'aides-menageres',
     'nounous',
     'cuisinieres',
-    'chauffeurs',
-    'gardiens',
+    'chauffeurs-gardiens',
   ];
 
-  const articles = [
+  const articleSlugs = [
     'tendances-recrutement-benin-2026',
     'bien-choisir-aide-menagere',
     'programme-nounous-certifiees',
   ];
 
-  const staticEntries = staticPages.map((path) => ({
+  const opportunitySlugs = [
+    'aide-menagere-villa-calavi',
+    'nounou-bilingue',
+    'chauffeur-prive',
+  ];
+
+  const staticEntries = staticPages.map(({ path, priority, changeFrequency }) => ({
     url: `${base}${path}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: path === '' ? 1.0 : 0.8,
+    lastModified: now,
+    changeFrequency,
+    priority,
   }));
 
-  const serviceEntries = services.map((slug) => ({
+  const serviceEntries = serviceSlugs.map((slug) => ({
     url: `${base}/services/${slug}`,
-    lastModified: new Date(),
+    lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
-  const articleEntries = articles.map((slug) => ({
+  const articleEntries = articleSlugs.map((slug) => ({
     url: `${base}/actualites/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
+    lastModified: now,
+    changeFrequency: 'weekly' as const,
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...serviceEntries, ...articleEntries];
+  const opportunityEntries = opportunitySlugs.map((slug) => ({
+    url: `${base}/opportunites/${slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly' as const,
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...serviceEntries, ...articleEntries, ...opportunityEntries];
 }

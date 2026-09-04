@@ -10,7 +10,7 @@ export default function AdminOpportunities() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold text-primary mb-2">Opportunités</h1>
-            <p className="text-text-main/40">Gérez les projets et investissements publiés sur le site.</p>
+            <p className="text-text-main/60">Gérez les projets et investissements publiés sur le site.</p>
           </div>
           <Button variant="secondary" className="gap-2">
             <Plus size={20} /> Nouvelle opportunité
@@ -40,10 +40,10 @@ export default function AdminOpportunities() {
           <table className="w-full border-collapse">
             <thead className="bg-light text-left">
               <tr>
-                <th className="px-8 py-5 text-xs font-bold uppercase tracking-widest text-primary/40 border-b border-primary/5">Titre</th>
-                <th className="px-8 py-5 text-xs font-bold uppercase tracking-widest text-primary/40 border-b border-primary/5">Catégorie</th>
-                <th className="px-8 py-5 text-xs font-bold uppercase tracking-widest text-primary/40 border-b border-primary/5">Statut</th>
-                <th className="px-8 py-5 text-xs font-bold uppercase tracking-widest text-primary/40 border-b border-primary/5 text-right">Actions</th>
+                <th className="px-8 py-5 text-xs font-bold uppercase tracking-widest text-primary/60 border-b border-primary/5">Titre</th>
+                <th className="px-8 py-5 text-xs font-bold uppercase tracking-widest text-primary/60 border-b border-primary/5">Catégorie</th>
+                <th className="px-8 py-5 text-xs font-bold uppercase tracking-widest text-primary/60 border-b border-primary/5">Statut</th>
+                <th className="px-8 py-5 text-xs font-bold uppercase tracking-widest text-primary/60 border-b border-primary/5 text-right">Actions</th>
               </tr>
             </thead>
             <tbody>

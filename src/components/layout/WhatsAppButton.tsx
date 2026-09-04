@@ -26,7 +26,7 @@ export default function WhatsAppButton() {
                 e.stopPropagation();
                 setDismissed(true);
               }}
-              className="text-text-main/40 hover:text-primary transition-colors shrink-0"
+              className="text-text-main/60 hover:text-primary transition-colors shrink-0"
               aria-label="Fermer"
             >
               <X size={14} />

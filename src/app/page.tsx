@@ -25,7 +25,13 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import FadeIn from '@/components/ui/FadeIn';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
 import TestimonialCarousel from '@/components/ui/TestimonialCarousel';
-import PresentationPlayer from '@/components/presentation/PresentationPlayer';
+import dynamic from 'next/dynamic';
+
+const PresentationPlayer = dynamic(
+  () => import('@/components/presentation/PresentationPlayer'),
+  { ssr: false }
+);
+
 import { services, whyChooseUs, steps, testimonials, opportunities } from '@/lib/mock-data';
 
 const iconMap: Record<string, React.ElementType> = {
@@ -236,9 +242,10 @@ export default function HomePage() {
                 >
                   <Image
                     src="/images/787159823_1474460841373092_3605669980762108495_n.jpg"
-                    alt="Vidéo institutionnelle GBC"
+                    alt="Vidéo institutionnelle GBC Bénin"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
+                    loading="lazy"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">

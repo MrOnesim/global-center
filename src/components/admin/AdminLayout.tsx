@@ -40,7 +40,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="flex items-center gap-4">
              <div className="flex flex-col text-right">
                 <span className="text-sm font-bold text-primary">Admin GBC</span>
-                <span className="text-[10px] text-primary/40 uppercase tracking-widest">Administrateur</span>
+                <span className="text-[10px] text-primary/60 uppercase tracking-widest">Administrateur</span>
              </div>
              <div className="w-10 h-10 bg-primary/5 rounded-full flex items-center justify-center text-primary">
                 <User size={20} />

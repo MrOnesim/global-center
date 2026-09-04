@@ -194,7 +194,7 @@ export default async function OpportunityDetailPage({ params }: { params: Promis
                       Envoyer ma demande <Send size={18} />
                     </Button>
                   </form>
-                  <p className="text-[10px] text-center text-text-main/40 mt-4 leading-relaxed">
+                  <p className="text-[10px] text-center text-text-main/60 mt-4 leading-relaxed">
                     Un conseiller GBC vous recontactera sous 48h pour discuter des modalités.
                   </p>
                 </div>

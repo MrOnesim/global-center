@@ -3,6 +3,8 @@ import PageHeader from '@/components/ui/PageHeader';
 
 export const metadata = {
   title: 'Mentions Légales',
+  description:
+    'Informations légales relatives au site GBC Bénin : éditeur, hébergement, propriété intellectuelle.',
 };
 
 export default function MentionsLegalesPage() {

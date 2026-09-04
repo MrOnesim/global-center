@@ -89,7 +89,7 @@ export default function AppointmentPage() {
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                          <label className="text-xs font-bold uppercase tracking-widest text-primary/40 ml-1">Nom complet</label>
+                          <label className="text-xs font-bold uppercase tracking-widest text-primary/60 ml-1">Nom complet</label>
                           <input
                             name="name"
                             required
@@ -99,7 +99,7 @@ export default function AppointmentPage() {
                           />
                         </div>
                         <div className="space-y-2">
-                          <label className="text-xs font-bold uppercase tracking-widest text-primary/40 ml-1">Téléphone</label>
+                          <label className="text-xs font-bold uppercase tracking-widest text-primary/60 ml-1">Téléphone</label>
                           <input
                             name="phone"
                             required
@@ -111,7 +111,7 @@ export default function AppointmentPage() {
                       </div>
 
                       <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-widest text-primary/40 ml-1">Email</label>
+                        <label className="text-xs font-bold uppercase tracking-widest text-primary/60 ml-1">Email</label>
                         <input
                           name="email"
                           required
@@ -122,7 +122,7 @@ export default function AppointmentPage() {
                       </div>
 
                       <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-widest text-primary/40 ml-1">Type de service recherché</label>
+                        <label className="text-xs font-bold uppercase tracking-widest text-primary/60 ml-1">Type de service recherché</label>
                         <select name="type" className="w-full bg-light border border-primary/5 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-light transition-all">
                           <option value="aide-menagere">Aide ménagère</option>
                           <option value="nounou">Nounou / Garde d&apos;enfants</option>
@@ -135,7 +135,7 @@ export default function AppointmentPage() {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                          <label className="text-xs font-bold uppercase tracking-widest text-primary/40 ml-1">Date souhaitée</label>
+                          <label className="text-xs font-bold uppercase tracking-widest text-primary/60 ml-1">Date souhaitée</label>
                           <input
                             name="date"
                             required
@@ -144,7 +144,7 @@ export default function AppointmentPage() {
                           />
                         </div>
                         <div className="space-y-2">
-                          <label className="text-xs font-bold uppercase tracking-widest text-primary/40 ml-1">Heure souhaitée</label>
+                          <label className="text-xs font-bold uppercase tracking-widest text-primary/60 ml-1">Heure souhaitée</label>
                           <input
                             name="time"
                             required
@@ -155,7 +155,7 @@ export default function AppointmentPage() {
                       </div>
 
                       <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-widest text-primary/40 ml-1">Message (Facultatif)</label>
+                        <label className="text-xs font-bold uppercase tracking-widest text-primary/60 ml-1">Message (Facultatif)</label>
                         <textarea
                           name="message"
                           rows={3}
@@ -174,7 +174,7 @@ export default function AppointmentPage() {
                         {loading ? 'Traitement...' : 'Demander un rendez-vous'}
                       </Button>
 
-                      <p className="text-[10px] text-center text-text-main/40 px-4">
+                      <p className="text-[10px] text-center text-text-main/60 px-4">
                         En soumettant ce formulaire, vous acceptez d&apos;être recontacté par l&apos;équipe de
                         GBC Bénin. Vos données sont protégées.
                       </p>
