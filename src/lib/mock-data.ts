@@ -139,7 +139,7 @@ export const testimonials = [
     company: 'Cotonou',
     content: 'GBC Bénin nous a trouvé une aide ménagère formidable. Elle est ponctuelle, soigneuse et vraiment professionnelle. Je recommande vivement leurs services.',
     rating: 5,
-    photo: '/images/781525823_1471975301621646_3581372018167280653_n.jpg',
+    photo: '/images/pexels-portrait-femme1.jpg',
   },
   {
     name: 'Patrick K.',
@@ -147,7 +147,7 @@ export const testimonials = [
     company: 'Abomey-Calavi',
     content: 'Le chauffeur que nous avons obtenu via GBC est d\'une grande fiabilité. Le processus de recrutement est transparent et le suivi est excellent.',
     rating: 5,
-    photo: '/images/786266528_1475360754616434_4577274913970703757_n.jpg',
+    photo: '/images/pexels-portrait-homme1.jpg',
   },
   {
     name: 'Sènanou G.',
@@ -155,7 +155,7 @@ export const testimonials = [
     company: 'Cotonou',
     content: 'Nous avons recruté notre nounou via GBC Bénin. Les enfants l\'adorent et nous avons enfin l\'esprit tranquillé. Un service de qualité rare au Bénin.',
     rating: 5,
-    photo: '/images/783948699_1470115358474307_924674279728262957_n.jpg',
+    photo: '/images/pexels-portrait-femme2.jpg',
   },
   {
     name: 'Olivier D.',
@@ -163,7 +163,7 @@ export const testimonials = [
     company: 'Porto-Novo',
     content: 'Un partenaire de confiance. GBC comprend nos besoins et propose toujours des candidats qui correspondent parfaitement à nos attentes.',
     rating: 5,
-    photo: '/images/787159823_1474460841373092_3605669980762108495_n.jpg',
+    photo: '/images/pexels-portrait-homme2.jpg',
   },
 ];
 

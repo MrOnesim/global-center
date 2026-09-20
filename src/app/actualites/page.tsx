@@ -20,7 +20,7 @@ const articles = [
     author: 'GBC Team',
     category: 'Recrutement',
     slug: 'tendances-recrutement-benin-2026',
-    image: '/images/787159823_1474460841373092_3605669980762108495_n.jpg',
+    image: '/images/pexels-reunion-lagos.jpg',
   },
   {
     title: 'Comment bien choisir son aide ménagère ?',
@@ -29,7 +29,7 @@ const articles = [
     author: 'Expert GBC',
     category: 'Conseils',
     slug: 'bien-choisir-aide-menagere',
-    image: '/images/788104610_1473685354783974_697891788509796637_n.jpg',
+    image: '/images/pexels-aide-menagere-sol.jpg',
   },
   {
     title: 'GBC Bénin lance son programme de nounous certifiées',
@@ -38,7 +38,7 @@ const articles = [
     author: 'Direction GBC',
     category: 'Actualité',
     slug: 'programme-nounous-certifiees',
-    image: '/images/783948699_1470115358474307_924674279728262957_n.jpg',
+    image: '/images/pexels-reunion-equipe.jpg',
   }
 ];
 

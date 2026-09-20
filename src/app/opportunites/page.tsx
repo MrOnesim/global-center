@@ -25,7 +25,7 @@ const opportunities = [
     description: 'Cherche une aide ménagère expérimentée pour l\'entretien d\'une villa 5 pièces, 3 fois par semaine.',
     type: 'Placement',
     amount: 'Négociable',
-    image: '/images/781525823_1471975301621646_3581372018167280653_n.jpg',
+    image: '/images/pexels-aide-menagere-mop.jpg',
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ const opportunities = [
     description: 'Recherche nounou bilingue (français/anglais) pour garde de 2 enfants de 3 et 5 ans.',
     type: 'Recrutement',
     amount: 'Selon profil',
-    image: '/images/783948699_1470115358474307_924674279728262957_n.jpg',
+    image: '/images/pexels-nounou-bebe.jpg',
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const opportunities = [
     description: 'Recherche chauffeur privé avec permis B+C, bonne présentation et connaissance de Cotonou.',
     type: 'Placement',
     amount: 'Selon profil',
-    image: '/images/786266528_1475360754616434_4577274913970703757_n.jpg',
+    image: '/images/pexels-chauffeur-volant.jpg',
   }
 ];
 

@@ -24,7 +24,7 @@ const articles: Record<string, {
     date: '15 Mai 2026',
     author: 'GBC Team',
     category: 'Recrutement',
-    image: '/images/787159823_1474460841373092_3605669980762108495_n.jpg',
+    image: '/images/pexels-reunion-lagos.jpg',
     content: `Le marché du recrutement au Bénin connaît une transformation accélérée en 2026. La demande en personnel qualifié explose dans plusieurs secteurs clés.\n\nLes secteurs en forte croissance incluent le personnel domestique, la restauration et l'hôtellerie. Les familles béninoises de plus en plus nombreuses recherchent des aides ménagères, nounous et cuisinières formées aux standards internationaux.\n\nGBC Bénin se positionne comme leader dans ce secteur en offreant un processus de recrutement rigoureux : vérification des antécédents, formation préalable et suivi continu de chaque collaborateur placé.\n\nNotre conseil : anticipez vos besoins en recrutement et faites appel à une agence spécialisée pour garantir la qualité et la fiabilité du personnel recruté.`,
   },
   'bien-choisir-aide-menagere': {
@@ -32,7 +32,7 @@ const articles: Record<string, {
     date: '02 Mai 2026',
     author: 'Expert GBC',
     category: 'Conseils',
-    image: '/images/788104610_1473685354783974_697891788509796637_n.jpg',
+    image: '/images/pexels-aide-menagere-sol.jpg',
     content: `Choisir la bonne aide ménagère est une décision importante qui impacte votre quotidien. Voici nos conseils d'experts pour faire le bon choix.\n\n**1. Définissez vos besoins**\nAvant toute recherche, listez précisément les tâches que vous attendez : ménage, cuisine, repassage, garde d'enfants. Plus votre cahier des charges est clair, plus le recrutement sera efficace.\n\n**2. Vérifiez les références**\nUne agence sérieuse comme GBC Bénin vérifie systématiquement les antécédents et les références de chaque candidat. Ne négligez jamais cette étape.\n\n**3. Testez pendant la période d'essai**\nAccordez-vous une période d'essai de 2 à 4 semaines pour évaluer la compatibility et la qualité du travail.\n\n**4. Communiquez clairement**\nÉtablissez dès le départ un cadre clair avec les horaires, les attentes et les règles de la maison.`,
   },
   'programme-nounous-certifiees': {
@@ -40,7 +40,7 @@ const articles: Record<string, {
     date: '20 Avril 2026',
     author: 'Direction GBC',
     category: 'Actualité',
-    image: '/images/783948699_1470115358474307_924674279728262957_n.jpg',
+    image: '/images/pexels-reunion-equipe.jpg',
     content: `GBC Bénin est fier d'annoncer le lancement de son programme de formation et certification des nounous, un premier au Bénin.\n\nCe programme comprend :\n- Formation en sécurité et premiers secours\n- Éducation positive et développement de l'enfant\n- Nutrition et alimentation saine\n- Hygiène et prévention des maladies\n- Gestion des urgences\n\nChaque nounou certifiée par GBC Bénin reçoit un diplôme reconnu et bénéficie d'un suivi continu tout au long de sa mission.\n\nLes familles peuvent désormais choisir en toute confiance une nounou formée aux meilleurs standards internationaux.`,
   },
 };
