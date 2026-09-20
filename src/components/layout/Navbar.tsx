@@ -22,6 +22,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  const solid = scrolled || pathname !== '/';
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -34,7 +36,7 @@ export default function Navbar() {
     <nav
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        solid ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -42,10 +44,10 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3 group">
             <Logo className="w-12 h-12 transition-transform group-hover:scale-110" />
             <div className="flex flex-col">
-              <span className={cn("font-black text-xl leading-tight tracking-tighter", scrolled ? "text-primary" : "text-white")}>
+              <span className={cn("font-black text-xl leading-tight tracking-tighter", solid ? "text-primary" : "text-white")}>
                 GLOBAL BUSINESS
               </span>
-              <span className={cn("text-xs font-black tracking-[0.3em] -mt-1", scrolled ? "text-accent" : "text-accent")}>
+              <span className={cn("text-xs font-black tracking-[0.3em] -mt-1", solid ? "text-accent" : "text-accent")}>
                 CENTER
               </span>
             </div>
@@ -61,7 +63,7 @@ export default function Navbar() {
                   'text-sm font-medium transition-colors hover:text-accent',
                   pathname === link.href
                     ? 'text-accent'
-                    : scrolled ? 'text-primary' : 'text-white'
+                    : solid ? 'text-primary' : 'text-white'
                 )}
               >
                 {link.name}
@@ -80,7 +82,7 @@ export default function Navbar() {
             className="lg:hidden text-primary p-2"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X size={28} className={scrolled ? "text-primary" : "text-white"} /> : <Menu size={28} className={scrolled ? "text-primary" : "text-white"} />}
+            {isOpen ? <X size={28} className={solid ? "text-primary" : "text-white"} /> : <Menu size={28} className={solid ? "text-primary" : "text-white"} />}
           </button>
         </div>
       </div>
