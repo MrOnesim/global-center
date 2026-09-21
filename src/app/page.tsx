@@ -241,7 +241,7 @@ export default function HomePage() {
                   onClick={() => setIsVideoOpen(true)}
                 >
                   <Image
-                    src="/images/pexels-benin-ganvie.jpg"
+                    src="/images/787159823_1474460841373092_3605669980762108495_n.jpg"
                     alt="Vidéo institutionnelle GBC Bénin"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
